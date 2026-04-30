@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smera Patil — UX Researcher</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --ink: #1A1510;
+    --accent: #E8452A;
+    --sage: #7B9E87;
+    --gold: #C9A84C;
+    --soft: #EDE8DC;
+    --muted: #8A8070;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* CUSTOM CURSOR */
+  .cursor {
+    width: 10px; height: 10px;
+    background: var(--accent);
+    border-radius: 50%;
+    position: fixed; top: 0; left: 0;
+    pointer-events: none; z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.15s ease, width 0.2s ease, height 0.2s ease;
+    mix-blend-mode: multiply;
+  }
+  .cursor-ring {
+    width: 36px; height: 36px;
+    border: 1.5px solid var(--ink);
+    border-radius: 50%;
+    position: fixed; top: 0; left: 0;
+    pointer-events: none; z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: transform 0.35s cubic-bezier(0.23,1,0.32,1), width 0.2s ease, height 0.2s ease;
+    opacity: 0.5;
+  }
+  body:hover .cursor { opacity: 1; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    padding: 24px 48px;
+    display: flex; justify-content: space-between; align-items: center;
+    z-index: 100;
+    mix-blend-mode: multiply;
+  }
+  .nav-logo {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .nav-links {
+    display: flex; gap: 36px; list-style: none;
+  }
+  .nav-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    padding: 140px 48px 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: end;
+    gap: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg-number {
+    position: absolute;
+    top: 50%; right: -20px;
+    transform: translateY(-50%);
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(240px, 30vw, 420px);
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(26,21,16,0.06);
+    user-select: none;
+    pointer-events: none;
+    line-height: 1;
+    letter-spacing: -0.05em;
+  }
+
+  .hero-left { position: relative; z-index: 2; }
+
+  .hero-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .hero-tag::before {
+    content: '';
+    width: 32px; height: 1px;
+    background: var(--accent);
+    display: inline-block;
+  }
+
+  .hero-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(56px, 7vw, 96px);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin-bottom: 32px;
+  }
+  .hero-headline em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--muted);
+    max-width: 420px;
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+  .hero-sub strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: 14px;
+    background: var(--ink);
+    color: var(--cream);
+    padding: 16px 32px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+    position: relative;
+  }
+  .hero-cta:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+  }
+  .hero-cta-arrow { font-size: 14px; transition: transform 0.2s; }
+  .hero-cta:hover .hero-cta-arrow { transform: translateX(4px); }
+
+  .hero-right {
+    position: relative; z-index: 2;
+    display: flex; flex-direction: column;
+    align-items: flex-end; gap: 16px;
+    padding-bottom: 16px;
+  }
+
+  .clout-stack {
+    display: flex; flex-direction: column;
+    align-items: flex-end; gap: 10px;
+  }
+
+  .clout-pill {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 10px 20px;
+    border: 1px solid rgba(26,21,16,0.12);
+    background: rgba(255,255,255,0.5);
+    backdrop-filter: blur(8px);
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-transform: uppercase;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .clout-pill:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateX(-4px);
+  }
+  .clout-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--sage);
+    flex-shrink: 0;
+  }
+  .clout-dot.red { background: var(--accent); }
+  .clout-dot.gold { background: var(--gold); }
+
+  .hero-stat-row {
+    display: flex; gap: 48px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(26,21,16,0.1);
+    margin-top: 12px;
+    width: 100%;
+  }
+  .stat { display: flex; flex-direction: column; gap: 4px; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1;
+  }
+  .stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* MARQUEE */
+  .marquee-wrap {
+    overflow: hidden;
+    border-top: 1px solid rgba(26,21,16,0.12);
+    border-bottom: 1px solid rgba(26,21,16,0.12);
+    padding: 14px 0;
+    background: var(--ink);
+  }
+  .marquee-track {
+    display: flex; gap: 64px;
+    animation: marquee 18s linear infinite;
+    width: max-content;
+  }
+  .marquee-item {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    white-space: nowrap;
+    display: flex; align-items: center; gap: 32px;
+  }
+  .marquee-item::after {
+    content: '✦';
+    color: var(--accent);
+    font-size: 8px;
+  }
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* SECTION BASE */
+  section { padding: 120px 48px; }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 64px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(26,21,16,0.12);
+  }
+
+  /* PROJECTS */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+
+  .project-card {
+    background: var(--soft);
+    padding: 56px 48px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+    cursor: pointer;
+  }
+  .project-card:nth-child(3) {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+    background: var(--ink);
+    color: var(--cream);
+  }
+  .project-card:hover { background: var(--sage); }
+  .project-card:nth-child(3):hover { background: var(--accent); }
+  .project-card:nth-child(1):hover { background: #F0E8D8; }
+  .project-card:nth-child(2):hover { background: #E8F0DC; }
+
+  .project-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 96px;
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(26,21,16,0.12);
+    line-height: 1;
+    margin-bottom: -16px;
+    display: block;
+    transition: -webkit-text-stroke-color 0.3s;
+  }
+  .project-card:nth-child(3) .project-num {
+    -webkit-text-stroke: 1px rgba(255,255,255,0.15);
+  }
+
+  .project-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 16px;
+    margin-top: 24px;
+  }
+  .project-card:nth-child(3) .project-tag { color: rgba(255,255,255,0.45); }
+
+  .project-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+  .project-desc {
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--muted);
+    font-weight: 300;
+  }
+  .project-card:nth-child(3) .project-desc { color: rgba(255,255,255,0.6); }
+
+  .project-result {
+    display: inline-block;
+    margin-top: 28px;
+    padding: 10px 20px;
+    border: 1px solid rgba(26,21,16,0.15);
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--ink);
+  }
+  .project-card:nth-child(3) .project-result {
+    border-color: rgba(255,255,255,0.25);
+    color: var(--cream);
+  }
+
+  .project-insight {
+    padding: 32px;
+    background: rgba(255,255,255,0.08);
+    border-left: 2px solid var(--gold);
+  }
+  .project-insight-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .project-insight-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-style: italic;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.85);
+  }
+
+  /* METHOD SECTION */
+  .methods-section {
+    background: var(--soft);
+    padding: 120px 48px;
+  }
+
+  .methods-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 0;
+  }
+
+  .method-cell {
+    padding: 48px 40px;
+    background: var(--cream);
+    position: relative;
+  }
+  .method-cell::before {
+    content: attr(data-method-num);
+    font-family: 'Playfair Display', serif;
+    font-size: 64px;
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(26,21,16,0.07);
+    position: absolute;
+    top: 20px; right: 24px;
+    line-height: 1;
+  }
+
+  .method-icon {
+    font-size: 24px;
+    margin-bottom: 20px;
+    display: block;
+  }
+  .method-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .method-desc {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  /* PHILOSOPHY */
+  .philosophy-section { padding: 120px 48px; }
+  .philosophy-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .philosophy-sticky {
+    position: sticky;
+    top: 120px;
+  }
+  .philosophy-big {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+  .philosophy-big em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .philosophy-items { display: flex; flex-direction: column; gap: 0; }
+  .philosophy-item {
+    padding: 40px 0;
+    border-bottom: 1px solid rgba(26,21,16,0.1);
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+  .philosophy-item:first-child { border-top: 1px solid rgba(26,21,16,0.1); }
+  .philosophy-item-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    padding-top: 4px;
+  }
+  .philosophy-item-content {}
+  .philosophy-item-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .philosophy-item-text {
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  /* CTA SECTION */
+  .cta-section {
+    padding: 140px 48px;
+    background: var(--ink);
+    color: var(--cream);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+  .cta-bg {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Playfair Display', serif;
+    font-size: 400px;
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255,255,255,0.04);
+    user-select: none;
+    pointer-events: none;
+    white-space: nowrap;
+    letter-spacing: -0.08em;
+  }
+  .cta-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 32px;
+  }
+  .cta-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 7vw, 88px);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: 24px;
+    position: relative; z-index: 2;
+  }
+  .cta-headline em { font-style: italic; color: var(--gold); }
+  .cta-sub {
+    font-size: 17px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 56px;
+    font-weight: 300;
+    position: relative; z-index: 2;
+  }
+  .cta-buttons {
+    display: flex; gap: 16px;
+    justify-content: center;
+    position: relative; z-index: 2;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: var(--cream);
+    padding: 18px 40px;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .btn-primary:hover { background: var(--gold); transform: translateY(-2px); }
+  .btn-secondary {
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.6);
+    padding: 18px 40px;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .btn-secondary:hover {
+    border-color: rgba(255,255,255,0.6);
+    color: var(--cream);
+    transform: translateY(-2px);
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 40px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(26,21,16,0.1);
+  }
+  .footer-left {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+  }
+  .footer-right {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+  }
+
+  /* ANIMATIONS */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s cubic-bezier(0.23,1,0.32,1), transform 0.8s cubic-bezier(0.23,1,0.32,1);
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 900px) {
+    nav { padding: 20px 24px; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 120px 24px 60px; }
+    .hero-right { align-items: flex-start; }
+    section { padding: 80px 24px; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-card:nth-child(3) { grid-template-columns: 1fr; gap: 32px; }
+    .methods-grid { grid-template-columns: 1fr; }
+    .philosophy-grid { grid-template-columns: 1fr; gap: 48px; }
+    .philosophy-sticky { position: static; }
+    footer { flex-direction: column; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<nav>
+  <span class="nav-logo">Smera Patil — UX</span>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#methods">Methods</a></li>
+    <li><a href="#philosophy">Philosophy</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-number">03</div>
+  <div class="hero-left">
+    <div class="hero-tag">Available for full-time roles</div>
+    <h1 class="hero-headline">
+      Research<br>that makes<br>people <em>act.</em>
+    </h1>
+    <p class="hero-sub">
+      I'm Smera — a UX researcher trained in <strong>cognitive science</strong>, 
+      fluent in what makes humans tick. I've run 100 user interviews for the NIH, 
+      redesigned broken job portals, and increased event participation 
+      <strong>2.8× in three weeks</strong>. 
+    </p>
+    <a href="#contact" class="hero-cta">
+      Let's talk <span class="hero-cta-arrow">→</span>
+    </a>
+
+    <div class="hero-stat-row">
+      <div class="stat">
+        <span class="stat-num">100+</span>
+        <span class="stat-label">User interviews</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">2.8×</span>
+        <span class="stat-label">Participation lift</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">3</span>
+        <span class="stat-label">Industries</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="clout-stack">
+      <div class="clout-pill"><span class="clout-dot red"></span> UC Berkeley — Cognitive Science</div>
+      <div class="clout-pill"><span class="clout-dot gold"></span> Infosys Helix</div>
+      <div class="clout-pill"><span class="clout-dot"></span> IxDF — Interaction Design</div>
+      <div class="clout-pill"><span class="clout-dot red"></span> NIH I-Corps — Best in Show ✦</div>
+      <div class="clout-pill"><span class="clout-dot gold"></span> Aliena Cai Fast Track UX</div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">User Interviews</span>
+    <span class="marquee-item">Participatory Design</span>
+    <span class="marquee-item">Cognitive Science</span>
+    <span class="marquee-item">Secondary Research</span>
+    <span class="marquee-item">Biophilic Design</span>
+    <span class="marquee-item">Journey Mapping</span>
+    <span class="marquee-item">Accessibility</span>
+    <span class="marquee-item">Human Centered Design</span>
+    <span class="marquee-item">User Interviews</span>
+    <span class="marquee-item">Participatory Design</span>
+    <span class="marquee-item">Cognitive Science</span>
+    <span class="marquee-item">Secondary Research</span>
+    <span class="marquee-item">Biophilic Design</span>
+    <span class="marquee-item">Journey Mapping</span>
+    <span class="marquee-item">Accessibility</span>
+    <span class="marquee-item">Human Centered Design</span>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<section id="work" style="padding: 120px 0;">
+  <div style="padding: 0 48px;">
+    <div class="section-label">Selected Work — 2022–2025</div>
+  </div>
+  <div class="projects-grid">
+    <!-- Project 1 -->
+    <div class="project-card fade-in">
+      <span class="project-num">01</span>
+      <div class="project-tag">Social UX · Multicultural Design · Porto, PT</div>
+      <h2 class="project-title">"Circles"<br>Meetup App</h2>
+      <p class="project-desc">
+        The problem wasn't the app — it was the moment strangers had to find each other in a crowd across language barriers. I ran in-person observations and participatory tests to find the exact friction point. The fix? A single insight that turned logistics invisible.
+      </p>
+      <span class="project-result">↑ 2.8× RSVPs across 3 events</span>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-card fade-in">
+      <span class="project-num">02</span>
+      <div class="project-tag">Job Portal UX · Accessibility · Research</div>
+      <h2 class="project-title">Fixing a<br>Broken Portal</h2>
+      <p class="project-desc">
+        Job searching is already anxiety-inducing. I combined secondary benchmarking with open-ended interviews to find the hidden drop-off points — especially for younger applicants who faced gaps the system wasn't designed to close.
+      </p>
+      <span class="project-result">Resume builder identified as #1 barrier</span>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="project-card fade-in">
+      <div>
+        <span class="project-num">03</span>
+        <div class="project-tag">Healthcare · Pharma · Stakeholder Research</div>
+        <h2 class="project-title">NIH I-Corps:<br>100 Interviews,<br>One Direction</h2>
+        <p class="project-desc">
+          A pharmaceutical company needed to know if their product idea would actually land. We conducted 100 stakeholder interviews — physicians, payers, patients — in an accelerator sprint. Asking the right open-ended questions in formal healthcare settings is a skill. We won Best in Show.
+        </p>
+        <span class="project-result">🏆 Best in Show — NIH I-Corps Accelerator</span>
+      </div>
+      <div class="project-insight">
+        <div class="project-insight-title">Key insight</div>
+        <p class="project-insight-text">"The real adoption barrier wasn't the drug — it was the workflow it interrupted."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METHODS -->
+<div class="methods-section" id="methods">
+  <div class="section-label">How I Work</div>
+  <div class="methods-grid">
+    <div class="method-cell fade-in" data-method-num="I">
+      <span class="method-icon">◎</span>
+      <div class="method-name">Open-Ended Interviews</div>
+      <p class="method-desc">I don't lead witnesses. I create conditions where people tell you what they actually think — not what they think you want to hear. Practiced across healthcare, tech, and social contexts.</p>
+    </div>
+    <div class="method-cell fade-in" data-method-num="II">
+      <span class="method-icon">⬡</span>
+      <div class="method-name">Participatory Design</div>
+      <p class="method-desc">The best insights come when users are co-designers. I've used this method in live events, digital products, and field settings — adapting the format to what the context demands.</p>
+    </div>
+    <div class="method-cell fade-in" data-method-num="III">
+      <span class="method-icon">◈</span>
+      <div class="method-name">Secondary Research</div>
+      <p class="method-desc">Industry benchmarks, academic literature, and competitive analysis ground my research in evidence. I triangulate qualitative findings against published data to sharpen recommendations.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PHILOSOPHY -->
+<section class="philosophy-section" id="philosophy">
+  <div class="section-label">Design Philosophy</div>
+  <div class="philosophy-grid">
+    <div class="philosophy-sticky">
+      <h2 class="philosophy-big">People<br>before <em>pixels.</em></h2>
+    </div>
+    <div class="philosophy-items">
+      <div class="philosophy-item fade-in">
+        <span class="philosophy-item-num">01</span>
+        <div class="philosophy-item-content">
+          <div class="philosophy-item-title">Designing for Joy</div>
+          <p class="philosophy-item-text">Inspired by Ingrid Fetell Lee and biophilic principles, I believe good UX should leave people feeling better than before. Engagement metrics matter — so does delight. The two aren't in conflict.</p>
+        </div>
+      </div>
+      <div class="philosophy-item fade-in">
+        <span class="philosophy-item-num">02</span>
+        <div class="philosophy-item-content">
+          <div class="philosophy-item-title">Cognitive Load is the Enemy</div>
+          <p class="philosophy-item-text">My background in cognitive science isn't a credential decoration — it's a lens. Every insight I surface is filtered through how people actually process information under real-world conditions, not ideal ones.</p>
+        </div>
+      </div>
+      <div class="philosophy-item fade-in">
+        <span class="philosophy-item-num">03</span>
+        <div class="philosophy-item-content">
+          <div class="philosophy-item-title">Method Follows Context</div>
+          <p class="philosophy-item-text">I've done research in parking lots in Portugal, hospital corridors, and remote video calls. The method always follows the constraint. A brilliant research plan that can't survive contact with reality is just a plan.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-bg">SP</div>
+  <div class="cta-label">Open to Opportunities</div>
+  <h2 class="cta-headline">Let's make<br>something <em>real.</em></h2>
+  <p class="cta-sub">UX Researcher · Mixed Methods · Cognitive Science · Human-Centered Design</p>
+  <div class="cta-buttons">
+    <a href="mailto:smerapatil@berkeley.edu" class="btn-primary">Get in touch →</a>
+    <a href="#work" class="btn-secondary">View my work</a>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-left">Smera Patil — UX Research Portfolio 2025</span>
+  <span class="footer-right">Berkeley, CA · Available now</span>
+</footer>
+
+<script>
+  // Custom cursor
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+    setTimeout(() => {
+      ring.style.left = e.clientX + 'px';
+      ring.style.top = e.clientY + 'px';
+    }, 60);
+  });
+  document.querySelectorAll('a, button, .project-card').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.style.width = '20px';
+      cursor.style.height = '20px';
+      ring.style.width = '56px';
+      ring.style.height = '56px';
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.style.width = '10px';
+      cursor.style.height = '10px';
+      ring.style.width = '36px';
+      ring.style.height = '36px';
+    });
+  });
+
+  // Scroll animations
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), 80);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Stagger siblings
+  document.querySelectorAll('.projects-grid, .methods-grid, .philosophy-items').forEach(parent => {
+    parent.querySelectorAll('.fade-in').forEach((el, i) => {
+      el.style.transitionDelay = (i * 100) + 'ms';
+    });
+  });
+</script>
+</body>
+</html>
