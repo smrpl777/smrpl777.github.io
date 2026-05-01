@@ -34,7 +34,7 @@ body {
 
 /* ─── CUSTOM CURSOR ─────────────────────────────── */
 .cursor {
-  background: var(--brand);
+  background: #E8452A;
   border-radius: 50%;
   position: fixed;
   top: 0;
@@ -87,7 +87,7 @@ nav {
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--brand-muted);
+  color: #6B5A4A;
 }
 
 .nav-links {
@@ -101,7 +101,7 @@ nav {
   font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--brand-muted);
+  color: #6B5A4A;
   text-decoration: none;
   transition: color 0.3s cubic-bezier(0.23, 1, 0.32, 1);
 }
@@ -148,7 +148,7 @@ nav {
   font-size: 12px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--brand);
+  color: #E8452A;
   margin-bottom: 24px;
   display: flex;
   align-items: center;
@@ -159,7 +159,7 @@ nav {
   content: '';
   width: 32px;
   height: 1px;
-  background: var(--brand);
+  background: #E8452A;
   display: inline-block;
 }
 
@@ -174,7 +174,7 @@ nav {
 
 .hero-headline em {
   font-style: italic;
-  color: var(--brand);
+  color: #E8452A;
 }
 
 /* Supporting tagline — calm, editorial, reads below headline */
@@ -182,7 +182,7 @@ nav {
   font-family: 'DM Mono', monospace;
   font-size: 13px;
   letter-spacing: 0.06em;
-  color: var(--brand-muted);
+  color: #6B5A4A;
   opacity: 0.75;
   margin-bottom: 32px;
   max-width: 400px;
@@ -192,7 +192,7 @@ nav {
 .hero-sub {
   font-size: 18px;
   line-height: 1.8;
-  color: var(--brand-muted);
+  color: #6B5A4A;
   max-width: 420px;
   margin-bottom: 48px;
   font-weight: 300;
@@ -220,7 +220,7 @@ nav {
 }
 
 .hero-cta:hover {
-  background: var(--brand);
+  background: #E8452A;
   transform: translateY(-1px);
 }
 
@@ -278,7 +278,7 @@ nav {
   font-size: 9px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--brand-muted);
+  color: #6B5A4A;
   opacity: 0.5;
   padding-right: 2px;
 }
@@ -310,7 +310,7 @@ nav {
   font-family: 'DM Mono', monospace;
   font-size: 12px;
   letter-spacing: 0.1em;
-  color: var(--brand-muted);
+  color: #6B5A4A;
   text-transform: uppercase;
   transition: all 0.32s cubic-bezier(0.23, 1, 0.32, 1);
   white-space: nowrap;
@@ -319,8 +319,8 @@ nav {
 }
 
 .clout-pill:hover {
-  border-color: var(--brand);
-  color: var(--brand);
+  border-color: #E8452A;
+  color: #E8452A;
   transform: translateX(-4px);
 }
 
@@ -381,7 +381,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--gold), var(--brand));
+  background: linear-gradient(135deg, var(--gold), #E8452A);
   color: white;
   font-family: 'Playfair Display', serif;
   font-weight: 700;
@@ -404,7 +404,7 @@ nav {
   flex-shrink: 0;
 }
 
-.clout-dot.red  { background: var(--brand); }
+.clout-dot.red  { background: #E8452A; }
 .clout-dot.gold { background: var(--gold); }
 .clout-dot.sky  { background: var(--sky-text); }
 
@@ -437,7 +437,7 @@ nav {
   font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--brand-muted);
+  color: #6B5A4A;
 }
 
 /* ─── MARQUEE ───────────────────────────────────── */
@@ -470,7 +470,7 @@ nav {
 
 .marquee-item::after {
   content: '✦';
-  color: var(--brand);
+  color: #E8452A;
   font-size: 8px;
 }
 
@@ -485,7 +485,7 @@ nav {
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--brand-muted);
+  color: #6B5A4A;
   margin-bottom: 64px;
   display: flex;
   align-items: center;
@@ -645,7 +645,7 @@ nav {
   font-family: 'DM Mono', monospace;
   font-size: 13px;
   letter-spacing: 0.18em;
-  color: var(--brand-muted);
+  color: #6B5A4A;
   opacity: 0.6;
 }
 
@@ -653,7 +653,7 @@ nav {
   font-family: 'DM Mono', monospace;
   font-size: 12px;
   letter-spacing: 0.12em;
-  color: var(--brand-muted);
+  color: #6B5A4A;
   opacity: 0.7;
   text-align: right;
 }
@@ -679,7 +679,7 @@ nav {
 .project-desc {
   font-size: 17px;
   line-height: 1.8;
-  color: var(--brand-muted);
+  color: #6B5A4A;
   font-weight: 300;
   max-width: 800px;
 }
@@ -725,7 +725,7 @@ nav {
   font-family: 'DM Mono', monospace;
   font-size: 13px;
   letter-spacing: 0.1em;
-  color: var(--brand-muted);
+  color: #6B5A4A;
   opacity: 0.75;
 }
 
@@ -782,7 +782,7 @@ nav {
   font-size: 10px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--brand-muted);
+  color: #6B5A4A;
   text-decoration: none;
   opacity: 0.5;
   border-bottom: 1px solid rgba(26, 21, 16, 0.15);
@@ -798,7 +798,7 @@ nav {
 .case-study-panel {
   grid-column: 1 / -1;
   background: var(--cream);
-  border-top: 2px solid var(--brand);
+  border-top: 2px solid #E8452A;
   padding: 64px 48px;
 }
 
@@ -818,7 +818,7 @@ nav {
   font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--brand-muted);
+  color: #6B5A4A;
   cursor: pointer;
   border-radius: 8px;
   transition: all 0.32s cubic-bezier(0.23, 1, 0.32, 1);
@@ -858,7 +858,7 @@ nav {
 }
 
 .projects-search-input::placeholder {
-  color: var(--brand-muted);
+  color: #6B5A4A;
   opacity: 0.38;
 }
 
@@ -873,7 +873,7 @@ nav {
   font-size: 10px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--brand-muted);
+  color: #6B5A4A;
   opacity: 0.45;
   cursor: pointer;
   padding: 0;
@@ -890,7 +890,7 @@ nav {
   font-family: 'DM Mono', monospace;
   font-size: 12px;
   letter-spacing: 0.1em;
-  color: var(--brand-muted);
+  color: #6B5A4A;
   opacity: 0.45;
 }
 
@@ -1011,7 +1011,7 @@ nav {
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--brand-muted);
+  color: #6B5A4A;
 }
 
 /* NIH modal — bold header label */
@@ -1100,7 +1100,7 @@ nav {
 .method-desc {
   font-size: 15px;
   line-height: 1.75;
-  color: var(--brand-muted);
+  color: #6B5A4A;
   font-weight: 300;
 }
 
@@ -1131,7 +1131,7 @@ nav {
 
 .philosophy-big em {
   font-style: italic;
-  color: var(--brand);
+  color: #E8452A;
 }
 
 .philosophy-items {
@@ -1156,7 +1156,7 @@ nav {
   font-family: 'DM Mono', monospace;
   font-size: 12px;
   letter-spacing: 0.15em;
-  color: var(--brand-muted);
+  color: #6B5A4A;
   padding-top: 4px;
 }
 
@@ -1170,7 +1170,7 @@ nav {
 .philosophy-item-text {
   font-size: 16px;
   line-height: 1.8;
-  color: var(--brand-muted);
+  color: #6B5A4A;
   font-weight: 300;
 }
 
@@ -1294,7 +1294,7 @@ nav {
 }
 
 .btn-primary {
-  background: var(--brand);
+  background: #E8452A;
   color: var(--cream);
   padding: 16px 36px;
   font-family: 'DM Mono', monospace;
@@ -1402,7 +1402,7 @@ footer {
 }
 
 .inline-link:hover {
-  text-decoration-color: var(--brand-muted);
+  text-decoration-color: #6B5A4A;
 }
 
 /* ─── INTERESTS ─────────────────────────────────── */
@@ -1794,4 +1794,9 @@ footer {
   .cta-bg {
     font-size: 160px;
   }
+}
+/* Force brand colors to override Tailwind */
+:root, :root:where(:not(#\9)) {
+  --accent: #E8452A !important;
+  --muted: #6B5A4A !important;
 }
