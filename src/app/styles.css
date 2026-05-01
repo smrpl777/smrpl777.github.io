@@ -1,7 +1,7 @@
 :root {
   --cream: #F5F0E8;
   --ink: #1A1510;
-  --accent: #E8452A;
+  --brand: #E8452A;
   --sage: #7B9E87;
   --gold: #C9A84C;
   --soft: #EDE8DC;
@@ -34,7 +34,7 @@ body {
 
 /* ─── CUSTOM CURSOR ─────────────────────────────── */
 .cursor {
-  background: var(--accent);
+  background: var(--brand);
   border-radius: 50%;
   position: fixed;
   top: 0;
@@ -148,7 +148,7 @@ nav {
   font-size: 12px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--brand);
   margin-bottom: 24px;
   display: flex;
   align-items: center;
@@ -159,7 +159,7 @@ nav {
   content: '';
   width: 32px;
   height: 1px;
-  background: var(--accent);
+  background: var(--brand);
   display: inline-block;
 }
 
@@ -174,7 +174,7 @@ nav {
 
 .hero-headline em {
   font-style: italic;
-  color: var(--accent);
+  color: var(--brand);
 }
 
 /* Supporting tagline — calm, editorial, reads below headline */
@@ -220,7 +220,7 @@ nav {
 }
 
 .hero-cta:hover {
-  background: var(--accent);
+  background: var(--brand);
   transform: translateY(-1px);
 }
 
@@ -319,8 +319,8 @@ nav {
 }
 
 .clout-pill:hover {
-  border-color: var(--accent);
-  color: var(--accent);
+  border-color: var(--brand);
+  color: var(--brand);
   transform: translateX(-4px);
 }
 
@@ -381,7 +381,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--gold), var(--accent));
+  background: linear-gradient(135deg, var(--gold), var(--brand));
   color: white;
   font-family: 'Playfair Display', serif;
   font-weight: 700;
@@ -404,7 +404,7 @@ nav {
   flex-shrink: 0;
 }
 
-.clout-dot.red  { background: var(--accent); }
+.clout-dot.red  { background: var(--brand); }
 .clout-dot.gold { background: var(--gold); }
 .clout-dot.sky  { background: var(--sky-text); }
 
@@ -470,7 +470,7 @@ nav {
 
 .marquee-item::after {
   content: '✦';
-  color: var(--accent);
+  color: var(--brand);
   font-size: 8px;
 }
 
@@ -798,7 +798,7 @@ nav {
 .case-study-panel {
   grid-column: 1 / -1;
   background: var(--cream);
-  border-top: 2px solid var(--accent);
+  border-top: 2px solid var(--brand);
   padding: 64px 48px;
 }
 
@@ -1131,7 +1131,7 @@ nav {
 
 .philosophy-big em {
   font-style: italic;
-  color: var(--accent);
+  color: var(--brand);
 }
 
 .philosophy-items {
@@ -1294,7 +1294,7 @@ nav {
 }
 
 .btn-primary {
-  background: var(--accent);
+  background: var(--brand);
   color: var(--cream);
   padding: 16px 36px;
   font-family: 'DM Mono', monospace;
