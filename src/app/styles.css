@@ -1,11 +1,11 @@
 :root {
   --cream: #F5F0E8;
   --ink: #1A1510;
-  --brand: #E8452A;
+  --brand: #E8452A !important;
   --sage: #7B9E87;
   --gold: #C9A84C;
   --soft: #EDE8DC;
-  --muted: #6B5A4A;
+  --brand-muted: #6B5A4A !important;
   /* zen sky blue — case study CTA */
   --sky: #87B5D0;
   --sky-text: #4A84A8;
@@ -87,7 +87,7 @@ nav {
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--brand-muted);
 }
 
 .nav-links {
@@ -101,7 +101,7 @@ nav {
   font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--brand-muted);
   text-decoration: none;
   transition: color 0.3s cubic-bezier(0.23, 1, 0.32, 1);
 }
@@ -182,7 +182,7 @@ nav {
   font-family: 'DM Mono', monospace;
   font-size: 13px;
   letter-spacing: 0.06em;
-  color: var(--muted);
+  color: var(--brand-muted);
   opacity: 0.75;
   margin-bottom: 32px;
   max-width: 400px;
@@ -192,7 +192,7 @@ nav {
 .hero-sub {
   font-size: 18px;
   line-height: 1.8;
-  color: var(--muted);
+  color: var(--brand-muted);
   max-width: 420px;
   margin-bottom: 48px;
   font-weight: 300;
@@ -278,7 +278,7 @@ nav {
   font-size: 9px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--brand-muted);
   opacity: 0.5;
   padding-right: 2px;
 }
@@ -310,7 +310,7 @@ nav {
   font-family: 'DM Mono', monospace;
   font-size: 12px;
   letter-spacing: 0.1em;
-  color: var(--muted);
+  color: var(--brand-muted);
   text-transform: uppercase;
   transition: all 0.32s cubic-bezier(0.23, 1, 0.32, 1);
   white-space: nowrap;
@@ -437,7 +437,7 @@ nav {
   font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--brand-muted);
 }
 
 /* ─── MARQUEE ───────────────────────────────────── */
@@ -485,7 +485,7 @@ nav {
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--brand-muted);
   margin-bottom: 64px;
   display: flex;
   align-items: center;
@@ -645,7 +645,7 @@ nav {
   font-family: 'DM Mono', monospace;
   font-size: 13px;
   letter-spacing: 0.18em;
-  color: var(--muted);
+  color: var(--brand-muted);
   opacity: 0.6;
 }
 
@@ -653,7 +653,7 @@ nav {
   font-family: 'DM Mono', monospace;
   font-size: 12px;
   letter-spacing: 0.12em;
-  color: var(--muted);
+  color: var(--brand-muted);
   opacity: 0.7;
   text-align: right;
 }
@@ -679,7 +679,7 @@ nav {
 .project-desc {
   font-size: 17px;
   line-height: 1.8;
-  color: var(--muted);
+  color: var(--brand-muted);
   font-weight: 300;
   max-width: 800px;
 }
@@ -725,7 +725,7 @@ nav {
   font-family: 'DM Mono', monospace;
   font-size: 13px;
   letter-spacing: 0.1em;
-  color: var(--muted);
+  color: var(--brand-muted);
   opacity: 0.75;
 }
 
@@ -782,7 +782,7 @@ nav {
   font-size: 10px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--brand-muted);
   text-decoration: none;
   opacity: 0.5;
   border-bottom: 1px solid rgba(26, 21, 16, 0.15);
@@ -818,7 +818,7 @@ nav {
   font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--brand-muted);
   cursor: pointer;
   border-radius: 8px;
   transition: all 0.32s cubic-bezier(0.23, 1, 0.32, 1);
@@ -858,7 +858,7 @@ nav {
 }
 
 .projects-search-input::placeholder {
-  color: var(--muted);
+  color: var(--brand-muted);
   opacity: 0.38;
 }
 
@@ -873,7 +873,7 @@ nav {
   font-size: 10px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--brand-muted);
   opacity: 0.45;
   cursor: pointer;
   padding: 0;
@@ -890,7 +890,7 @@ nav {
   font-family: 'DM Mono', monospace;
   font-size: 12px;
   letter-spacing: 0.1em;
-  color: var(--muted);
+  color: var(--brand-muted);
   opacity: 0.45;
 }
 
@@ -1011,7 +1011,7 @@ nav {
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--brand-muted);
 }
 
 /* NIH modal — bold header label */
@@ -1100,7 +1100,7 @@ nav {
 .method-desc {
   font-size: 15px;
   line-height: 1.75;
-  color: var(--muted);
+  color: var(--brand-muted);
   font-weight: 300;
 }
 
@@ -1156,7 +1156,7 @@ nav {
   font-family: 'DM Mono', monospace;
   font-size: 12px;
   letter-spacing: 0.15em;
-  color: var(--muted);
+  color: var(--brand-muted);
   padding-top: 4px;
 }
 
@@ -1170,7 +1170,7 @@ nav {
 .philosophy-item-text {
   font-size: 16px;
   line-height: 1.8;
-  color: var(--muted);
+  color: var(--brand-muted);
   font-weight: 300;
 }
 
@@ -1402,7 +1402,7 @@ footer {
 }
 
 .inline-link:hover {
-  text-decoration-color: var(--muted);
+  text-decoration-color: var(--brand-muted);
 }
 
 /* ─── INTERESTS ─────────────────────────────────── */
