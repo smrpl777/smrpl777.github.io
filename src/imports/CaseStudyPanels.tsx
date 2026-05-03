@@ -1,6 +1,6 @@
 import React from "react";
-import eiaPorto from "./eia-porto.jpeg";
-import eiaBeanbag from "./eia-beanbag.jpeg";
+import eiaPorto from "../eia-porto.jpeg";
+import eiaBeanbag from "../eia-beanbag.jpeg";
 
 /* ─────────────────────────────────────────────────
    Shared helpers
