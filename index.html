@@ -1,17 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Smera Patil Folio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <style>html, body { height: 100%; margin: 0; } #root { height: 100%; }</style>
-    <script type="module" crossorigin src="/assets/index-rNn_b5hs.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-Dao6YCX0.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smera Patil — UX Design Portfolio</title>
+<meta name="description" content="Smera Patil — UX designer trained in cognitive science &amp; global entrepreneurship. Selected work, methods, and design philosophy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500;1,9..144,600&family=Karla:wght@400;500;600&family=DM+Mono:wght@400;500&family=Work+Sans:wght@400;500&family=Caveat:wght@500;600&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- paper grain filter: subtle noise texture applied over painted surfaces via mix-blend-mode -->
+<svg width="0" height="0" style="position:absolute">
+  <filter id="grain">
+    <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="noise"></feTurbulence>
+    <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.045 0"></feColorMatrix>
+  </filter>
+</svg>
+
+<div class="page">
+
+  <!-- paper grain overlay across whole page -->
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <!-- soft watercolor wash blooms behind key moments -->
+  <div class="wash wash--1" aria-hidden="true"></div>
+  <div class="wash wash--2" aria-hidden="true"></div>
+  <div class="wash wash--3" aria-hidden="true"></div>
+  <div class="wash wash--4" aria-hidden="true"></div>
+
+  <!-- ============ NAV ============ -->
+  <nav class="nav">
+    <div class="nav__logo">Smera Patil <span class="accent">— UX</span></div>
+    <div class="nav__links">
+      <a href="#work">Work</a>
+      <a href="#methods">Methods</a>
+      <a href="#philosophy">Philosophy</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="hero__grid reveal">
+      <!-- LEFT: Tag, Headline, Body, CTA -->
+      <div class="hero__main">
+        <div class="hero__tag">
+          <div class="hero__tag-line"></div>
+          <div class="hero__tag-label">Available for full-time roles</div>
+        </div>
+        <h1 class="hero__headline">Designing for <em>global impact.</em></h1>
+        <p class="hero__body">I'm <strong>Smera</strong> — a UX designer trained in cognitive science &amp; global entrepreneurship, fluent in what makes humans tick. I've run <strong>100 user interviews</strong> for the NIH, redesigned broken job portals, and <strong>tripled event participation</strong> in three weeks.</p>
+        <a href="#contact" class="btn-cta">LET'S TALK →</a>
+      </div>
+
+      <!-- RIGHT: CREDENTIALS CARD -->
+      <div class="hero__side">
+        <ul class="credentials" id="credentials-list"></ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ MARQUEE ============ -->
+  <div class="marquee">
+    <div class="marquee__track">
+      <span class="marquee__text">User Interviews &nbsp;·&nbsp; Participatory Design &nbsp;·&nbsp; Cognitive Science &nbsp;·&nbsp; Secondary Research &nbsp;·&nbsp; Biophilic Design &nbsp;·&nbsp; Journey Mapping &nbsp;·&nbsp; Accessibility &nbsp;·&nbsp; Human Centered Design &nbsp;·</span>
+      <span class="marquee__text">User Interviews &nbsp;·&nbsp; Participatory Design &nbsp;·&nbsp; Cognitive Science &nbsp;·&nbsp; Secondary Research &nbsp;·&nbsp; Biophilic Design &nbsp;·&nbsp; Journey Mapping &nbsp;·&nbsp; Accessibility &nbsp;·&nbsp; Human Centered Design &nbsp;·</span>
+    </div>
+  </div>
+
+  <!-- ============ WORK ============ -->
+  <section id="work" class="work">
+    <h2 class="work__heading reveal">Selected Work <span>— 2022–2025</span></h2>
+    <div class="work-grid" id="work-grid"></div>
+  </section>
+
+  <!-- ============ METHODS ============ -->
+  <section id="methods" class="methods">
+    <h2 class="reveal">How I Work</h2>
+    <div class="methods__grid" id="methods-grid"></div>
+  </section>
+
+  <!-- ============ PHILOSOPHY ============ -->
+  <section id="philosophy" class="philosophy">
+    <div class="philosophy__grid">
+      <h2 class="reveal">People before <em>pixels.</em></h2>
+      <div class="philosophy__list" id="philosophy-list"></div>
+    </div>
+  </section>
+
+  <!-- ============ OUTSIDE WORK ============ -->
+  <section class="outside">
+    <div class="outside__grid reveal">
+      <div>
+        <div class="kicker">Outside Work</div>
+        <p class="outside__body">As an experience aficionado, I stay observant and curious. I find that being in unfamiliar places primes you for innovation and insights, so I love exploring.</p>
+        <div class="tag-row">
+          <span class="tag tag--warm">Blue Zones</span>
+          <span class="tag tag--paper">Sunsets</span>
+          <span class="tag tag--warm">Travel</span>
+          <span class="tag tag--paper">Wellness</span>
+          <span class="tag tag--warm">Music</span>
+        </div>
+      </div>
+      <div class="outside__photo-wrap">
+        <div class="outside__photo-block" aria-hidden="true"></div>
+        <div class="outside__photo-frame">
+          <img src="assets/outside-work.png" alt="Smera and friends at Cabo da Roca, Portugal" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="contact">
+    <div class="kicker reveal">Get in Touch</div>
+    <h2 class="reveal">If something clicked, <em>let's chat.</em></h2>
+    <p class="contact__subhead reveal">UX Designer · Cognitive Science · Human-Centered Design</p>
+
+    <div class="testimonial-wrap reveal">
+      <div class="testimonial-block" aria-hidden="true"></div>
+      <div class="testimonial-card">
+        <p class="testimonial-quote">"She is strong and organized and her passion was evident in her independent research. We were very pleased and proud to have her on our team."</p>
+        <div class="testimonial-attr">— Eboo Versi, MD PhD · NIH I-Corps Manager</div>
+      </div>
+    </div>
+
+    <div class="contact-links reveal" id="contact-links"></div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div>Smera Patil — UX Design Portfolio 2026</div>
+    <div>San Francisco, CA · Available now</div>
+  </footer>
+
+  <!-- ============ CASE STUDY MODAL (populated by script.js) ============ -->
+  <div id="modal-root"></div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
 </html>
